@@ -90,6 +90,7 @@ if(isset($_REQUEST['submit'])){
                 <legend>Date of Birth</legend>
                 <input type="date" name="date_of_birth" id="">
                 </fieldset>
+                    <input type="submit" name="submit" value="Submit" >
 
 </body>
 </html>
