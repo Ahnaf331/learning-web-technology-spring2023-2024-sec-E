@@ -44,12 +44,5 @@ function delete_employee($username){
     return $result;
  }
 
- function book_hotel($h_data){
-    $conneciton = get_connection();
-    $sql = "INSERT INTO book_hotel (user_name, date, Schedule, duration, p_type, n_people)
-    VALUES ('{$h_data['user_name']}', '{$h_data['date']}', '{$h_data['Schedule']}', '{$h_data['duration']}', '{$h_data['p_type']}', '{$h_data['n_people']}')";
-    $result = mysqli_query($conneciton, $sql);
-    return $result;
- }
 
 ?>
