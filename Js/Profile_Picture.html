@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Picture</title>
+    <style>
+        form {
+            width: 300px;
+        }
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="profilePictureForm" action="" method="" enctype="">
+        <fieldset>
+            <legend>Profile picture</legend>
+            <table>
+                <tr>
+                    <td>User ID:</td>
+                    <td><input type="number" id="userID" name="id" value=""></td>
+                </tr>
+                <tr>
+                    <td>Photo:</td>
+                    <td><input type="file" id="photo" name="file" value=""></td>
+                </tr>
+            </table>
+            <span id="userIDError" class="error-message"></span><br>
+            <span id="photoError" class="error-message"></span><br>
+            <hr>
+            <input type="submit" name="submit" value="Submit" onclick="return validateForm()">
+        </fieldset>
+    </form>
+
+    <script>
+        function validateForm() {
+            var userID = document.getElementById("userID").value;
+            var photo = document.getElementById("photo").value;
+            var userIDError = document.getElementById("userIDError");
+            var photoError = document.getElementById("photoError");
+
+            
+            userIDError.innerHTML = "";
+            photoError.innerHTML = "";
+
+           
+            
+            if (!userId) {
+                    userIdError.innerHTML = 'Please enter your User ID.';
+                     isValid = false;
+                    }                          
+            else if (userId <= 0) {
+                     userIdError.innerHTML = 'User ID must be a positive number.';
+                     isValid = true;
+                    }
+            else{
+                return false;
+            }
+            
+
+            if (photo === "") {
+                photoError.innerHTML = "Please select a photo";
+                return false;
+            }
+
+            return true; 
+        }
+    </script>
+</body>
+</html>
+
+

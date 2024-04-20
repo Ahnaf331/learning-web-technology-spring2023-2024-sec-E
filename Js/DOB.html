@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOB</title>
+    <style>
+        form {
+            width: 300px;
+        }
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="dobForm" action="" method="" enctype="">
+        <fieldset>
+            <legend>DOB</legend>
+            <input type="date" id="dob" name="dob" value=""><br>
+            <span id="dobError" class="error-message"></span><br>
+            <hr>
+            <input type="submit" name="submit" value="Submit" onclick="return validateDOB()">
+            <hr>
+        </fieldset>
+    </form>
+
+    <script>
+        function validateDOB() {
+            var dob = document.getElementById("dob").value;
+            var dobError = document.getElementById("dobError");
+
+            dobError.innerHTML = "";
+
+            
+            if (dob === "") {
+                dobError.innerHTML = "DOB cannot be empty";
+                return false;
+            }
+
+            return true; 
+        }
+    </script>
+</body>
+</html>

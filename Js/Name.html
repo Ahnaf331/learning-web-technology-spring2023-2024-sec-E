@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+<title>Form Validation</title>
+<style>
+    .error-message {
+        color: red;
+    }
+</style>
+</head>
+<body>
+
+
+<form id="myForm" onsubmit="return validateForm()">
+    <label for="Name">Name:</label><br>
+    <input type="text" id="Name" name="Name"><br>
+    <span id="NameError" class="error-message"></span><br>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+function validateForm() {
+    var Name = document.getElementById("Name").value;
+    var NameError = document.getElementById("NameError");
+  
+
+
+    NameError.innerHTML = "";
+
+    if (Name === "") {
+        NameError.innerHTML = "Name cannot be empty";
+        return false;
+    }
+
+    var words 
+    if (words.length < 2) {
+        NameError.innerHTML = "Name must contain at least two words";
+        return false;
+    }
+
+    
+    if (!NamePattern.test(Name)) {
+        NameError.innerHTML = "Name must start with a letter and can contain only letters, dots, or dashes";
+        return false;
+    }
+
+    return true; 
+}
+</script>
+
+</body>
+</html>

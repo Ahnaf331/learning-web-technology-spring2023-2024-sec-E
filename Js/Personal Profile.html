@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Profile</title>
+    <style>
+        form {
+            width: 350px;
+        }
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="profileForm" action="" method="" enctype="">
+        <fieldset>
+            <table>
+                <caption>PERSON PROFILE</caption>
+                <tr>
+                    <th>Name:</th>
+                    <td><input type="text" id="name" name="name" required></td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td><input type="email" id="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <th>Gender:</th>
+                    <td>
+                        <input type="radio" id="male" name="gender" value="male" required> Male
+                        <input type="radio" id="female" name="gender" value="female" required> Female
+                        <input type="radio" id="other" name="gender" value="other" required> Other
+                    </td>
+                </tr>
+                <tr>
+                    <th>Date of Birth:</th>
+                    <td><input type="date" id="dob" name="dob" required> (YYYY-MM-DD)</td>
+                </tr>
+                <tr>
+                    <th>Blood Group:</th>
+                    <td><input type="text" id="bloodGroup" name="bloodGroup" required></td>
+                </tr>
+                <tr>
+                    <th>Degree:</th>
+                    <td>
+                        <select id="degree" name="degree" required>
+                            <option value="">Select</option>
+                            <option value="ssc">SSC</option>
+                            <option value="hsc">HSC</option>
+                            <option value="bsc">BSc.</option>
+                            <option value="msc">MSc.</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Photo:</th>
+                    <td><input type="file" id="photo" name="photo" accept="image/*" required></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Submit"> <input type="reset" value="Reset"></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+    <script>
+        function validateProfile() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var dob = document.getElementById("dob").value;
+            var bloodGroup = document.getElementById("bloodGroup").value;
+            var degree = document.getElementById("degree").value;
+            var photo = document.getElementById("photo").value;
+
+            var nameError = document.getElementById("nameError");
+            var emailError = document.getElementById("emailError");
+            var genderError = document.getElementById("genderError");
+            var dobError = document.getElementById("dobError");
+            var bloodGroupError = document.getElementById("bloodGroupError");
+            var degreeError = document.getElementById("degreeError");
+            var photoError = document.getElementById("photoError");
+
+            
+            nameError.innerHTML = "";
+            emailError.innerHTML = "";
+            genderError.innerHTML = "";
+            dobError.innerHTML = "";
+            bloodGroupError.innerHTML = "";
+            degreeError.innerHTML = "";
+            photoError.innerHTML = "";
+
+            if (name === "") {
+                nameError.innerHTML = "Name cannot be empty";
+                return false;
+            }
+            if (email === "") {
+                emailError.innerHTML = "Email cannot be empty";
+                return false;
+            }
+
+        
+            var words
+            if (words.length < 2) {
+                nameError.innerHTML = "Name must contain at least two words";
+                return false;
+            }
+
+          
+            if (!name.test(name)) {
+                nameError.innerHTML = "Name must start with a letter and can contain only letters, dots, or dashes";
+                return false;
+            }
+
+            
+            if (!email.test(email)) {
+                emailError.innerHTML = "Please enter a valid email address";
+                return false;
+            }
+
+            if (!gender) {
+                genderError.innerHTML = "Please select a gender";
+                return false;
+            }
+            if (degree === "") {
+                degreeError.innerHTML = "Please select a degree";
+                return false;
+            }
+            if (dob === "") {
+                dobError.innerHTML = "Date of Birth cannot be empty";
+                return false;
+            }
+
+            if (bloodGroup === "") {
+                bloodGroupError.innerHTML = "Blood Group cannot be empty";
+                return false;
+            }
+            if (photo === "") {
+                photoError.innerHTML = "Please select a profile picture";
+                return false;
+            }
+
+            return true; 
+        }
+    </script>
+</body>
+</html>
